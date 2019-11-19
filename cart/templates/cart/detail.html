@@ -1,6 +1,6 @@
 {% extends "shop/base.html" %}
 {% load static %}
-{% block title %}Your shopping cart{% endblock %}
+{% block title %}Ваша корзина{% endblock %}
 
 {% block content %}
     <h1>Ваша корзина</h1>
@@ -18,7 +18,6 @@
         <tbody>
 
         {% for item in cart %}
-            {{ item.product }}
             {% with product=item.product %}
                 <tr>
                     <td>
@@ -52,6 +51,6 @@
     </table>
     <p class="text-right">
         <a href="{% url "shop:product_list" %}" class="button light">Продолжить покупки</a>
-        <a href="#" class="button">Оформить заказ</a>
+        <a href="{% url "orders:order_create" %}" class="button">Оформить заказ</a>
     </p>
 {% endblock %}
